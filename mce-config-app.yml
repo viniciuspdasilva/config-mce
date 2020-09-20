@@ -1,1 +1,3 @@
-spring.application.name=config
+delivery:
+  maxOrders: 10
+  minOrders: 1
