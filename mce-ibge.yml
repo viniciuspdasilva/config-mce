@@ -1,0 +1,28 @@
+server:
+   port: 9092
+   
+eureka:
+  instance:
+    hostname: localhost
+    port: 8081
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+spring:
+    datasource:
+        data: classpath:/sql/data.sql
+        password: 'password'
+        platform: mysql
+        schema: classpath:/sql/schema.sql
+        url: jdbc:mysql://localhost:3306/ibge
+        username: root
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+        show-sql: true
